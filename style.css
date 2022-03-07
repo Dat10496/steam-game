@@ -1,0 +1,220 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #1d3636;
+  height: 100px;
+  margin: 0px;
+  box-sizing: inherit;
+}
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+}
+
+#steam-logo {
+  height: 50px;
+  width: 170px;
+  position: relative;
+  left: 50px;
+  bottom: -20px;
+  border: none;
+}
+
+.header-name-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  display: flex;
+  list-style: none;
+  text-decoration: none;
+  column-gap: 2em;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.2rem;
+  position: relative;
+  right: 0.5rem;
+  color: #b7bdbd;
+  top: 0.5rem;
+}
+
+.nav-link li:hover {
+  cursor: pointer;
+  filter: brightness(110%);
+}
+
+main {
+  background-color: #3b5353;
+  font-family: "Motiva Sans", Sans-serif;
+  display: flex;
+}
+
+#store-search-link {
+  position: relative;
+  top: 10px;
+  right: 40px;
+}
+
+#search-input {
+  width: 250px;
+  height: 30px;
+  border-radius: 3px;
+  border: none;
+  margin: 10px;
+  background-color: #74a7a7;
+  padding: 1em;
+  color: aliceblue;
+}
+
+.search-box {
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+  color: aliceblue;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.category {
+  border-top: 2px solid aliceblue;
+  padding-left: 0px;
+  margin-top: 0.5em;
+  width: 250px;
+  margin: 10px;
+}
+
+li:hover {
+  background-color: aliceblue;
+  color: #1d3636;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.showing-game {
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+.game-info {
+  background-color: #5c7474;
+  margin-top: 0px;
+  padding: 0.1em;
+  font-family: "Motiva Sans", Sans-serif;
+  color: #acdbf5;
+  font-size: 1.2em;
+  align-items: center;
+  font-style: italic;
+  border-radius: 3px;
+  width: 250px;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.game-wrapper {
+  padding: 10px;
+  /* display: flex; */
+  align-items: column;
+}
+
+#background-game:hover {
+  filter: brightness(140%);
+}
+
+.cover #background-game {
+  margin-bottom: 0px;
+}
+
+.info {
+  padding: 0.1rem;
+  color: #acdbf5;
+  margin-bottom: 1rem;
+  font-family: roboto, sans-serif;
+  background-color: #1c2a57;
+  margin-bottom: auto;
+}
+.info .price {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: -0.8rem;
+}
+
+.main-info {
+  background-color: #1c2a57;
+  display: flex;
+  justify-content: space-between;
+}
+
+.discription-game {
+  margin: 10px;
+}
+
+.main-info .info-game {
+  font-family: "Courier New", Courier, monospace;
+  padding: 0.2rem;
+  color: aquamarine;
+  text-align: justify;
+  margin-left: 2rem;
+}
+
+.main-info .info-game p {
+  margin: 1.2rem;
+}
+
+.btn-group .btn-right {
+  position: absolute;
+  bottom: -19rem;
+  left: 48rem;
+}
+
+.btn-group .btn-left {
+  position: absolute;
+  bottom: -19rem;
+  left: 40rem;
+}
+
+.btn {
+  background-color: #5c7474;
+  border-radius: 5px;
+  border: none;
+  height: 2rem;
+  color: aliceblue;
+  padding: 0.5rem;
+}
+.btn:hover {
+  background-color: aliceblue;
+  color: #1d3636;
+}
+
+#title-game {
+  font-style: bold;
+  font-size: 2em;
+  color: aliceblue;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.category ul li {
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 700px) {
+  .showing-game {
+    display: inline-block;
+    background-color: #3b5353;
+    font-family: "Motiva Sans", Sans-serif;
+  }
+}
