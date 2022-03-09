@@ -1,49 +1,53 @@
 const titleGame = document.querySelector("#title-game");
 const btnGroup = document.querySelector(".btn-group");
+const nextBtn = document.querySelector(".btn-right");
+const preBtn = document.querySelector(".btn-left");
 let page = 1;
 let genre = "";
 
-//  Get API all game
-const getAllGames = async (genre) => {
+//  Get API genre of game
+const getGenreGames = async (genre) => {
+  titleGame.innerHTML = genre;
   let url = `https://cs-steam-api.herokuapp.com/games?page=${page}`;
-  // if (genre) {
-    // 1. find & in string
-    genre.match("&")
-    // 2. change & to %26
-    genre.replaceAll("&","%26")
-  //   url += `&genres=${genre}`;
-  //   console.log(url);
-  // }
-
-  if (genre) {
-    if(genre.match("&")) {
-      let genreChange =  genre.replaceAll("&", "%26")
-     console.log(genreChange)
-
-      // console.log(genre)
-      url += `&genres=${genreChange}`;
-      console.log(url);
-    }
-    // console.log(genre)
-    // url += `&genres=${genre}`;
-    // console.log(url);
+  // find "&" in string
+  if (genre.includes("&")) {
+    // Change "&" to "%26"
+    let genreChange = genre.replaceAll("&", "%26");
+    url += `&genres=${genreChange}`;
+  }
+  if (!genre.includes("&")) {
+    url += `&genres=${genre}`;
   }
   try {
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data)
     renderGame(data.data);
   } catch (error) {
     console.log(error);
   }
 };
-getAllGames();
+
+// function default page game
+const pageGame = async () => {
+  let url = `https://cs-steam-api.herokuapp.com/games?page=${page}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    renderGame(data.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+pageGame();
 
 // Choose genre
 const chooseGame = (data) => {
+  page = 1;
   genre = data;
-  console.log(data);
-  getAllGames(genre);
+  getGenreGames(data);
+  btnGroup.innerHTML = ` <button class="btn btn-left" onclick="previousPage()"> Previous Page</button>
+  </button>
+  <button class="btn btn-right" onclick="nextPage()"> Next Page </button>`;
 };
 
 //  Function create div game
@@ -89,24 +93,25 @@ const getNameGame = async (name) => {
   }
 };
 
+// function render genre list game
 const renderGenreList = async () => {
   try {
-    const url = "https://cs-steam-api.herokuapp.com/genres";
+    const url = "https://cs-steam-api.herokuapp.com/genres?page=2";
     const res = await fetch(url);
     const data = await res.json();
     const genres = data.data;
-   getGenreListGame(genres)
+    getGenreListGame(genres);
   } catch (error) {
     console.log(error);
   }
 };
-renderGenreList()
+renderGenreList();
 
-
+//  Function create list of game
 const getGenreListGame = (data) => {
   const category = document.querySelector(".category");
   category.innerHTML = "";
- data.map((e) => {
+  data.map((e) => {
     const x = document.createElement("ul");
     x.innerHTML = `<li onclick="chooseGame('${e.name}')">${e.name}</li>`;
     category.appendChild(x);
@@ -115,8 +120,39 @@ const getGenreListGame = (data) => {
 
 function resetPage() {
   const btnGroup = document.querySelector(".btn-group");
-  renderAllGame();
+  pageGame();
   btnGroup.innerHTML = ` <button class="btn btn-left">Previous Page</button>
   <button class="btn btn-right">Next Page</button>`;
   titleGame.innerHTML = "";
+  btnGroup.innerHTML = "";
+}
+
+// Button next page
+function nextPage() {
+  page += 1;
+  console.log(page);
+  if (page > 4) {
+    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Previous Page</button>
+  <button class=" btn-right" disabled>Next Page</button>`;
+  }
+  if ((1 < page) & (page < 4)) {
+    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Previous Page</button>
+    <button class="btn btn-right" onclick="nextPage()">Next Page</button>`;
+  }
+  getGenreGames(genre);
+}
+
+// Button previous page
+function previousPage() {
+  page -= 1;
+  console.log(page);
+  if (page < 5) {
+    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Previous Page</button>
+    <button class="btn btn-right" onclick="nextPage()">Next Page</button>`;
+  }
+  if (page < 2) {
+    btnGroup.innerHTML = ` <button class="btn-left"  onclick="previousPage()" disabled>Previous Page</button>
+    <button class="btn btn-right" onclick="nextPage()">Next Page</button>`;
+  }
+  getGenreGames(genre);
 }

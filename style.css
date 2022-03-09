@@ -195,8 +195,7 @@ li:hover {
   padding: 0.5rem;
 }
 .btn:hover {
-  background-color: aliceblue;
-  color: #1d3636;
+  filter: brightness(110%);
 }
 
 #title-game {
