@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <header>
-    <div class="header-name-content">
-      <div class="header-logo">
-        <a href="https://store.steampowered.com/">
-          <img id="steam-logo" src="header_logo.png" alt="SteamLogo" />
-        </a>
-      </div>
-      <h3 id="title-game"></h3>
-      <div class="nav-link">
-        <li onclick="resetPage()">Home</li>
-        <li>Support</li>
-        <li>About Us</li>
-      </div>
-    </div>
-  </header>
-  <main>
-    <div class="search-area">
-      <form action="#" class="search-form">
-        <div class="search-box">
-          <input type="text" id="search-input" placeholder="search" />
-          <a href="#" id="store-search-link">
-            <img id="search-icon" src="icon.jfif" alt="icon" height="30px" width="30px" />
+  <body>
+    <header>
+      <div class="header-name-content">
+        <div class="header-logo">
+          <a href="https://store.steampowered.com/">
+            <img id="steam-logo" src="header_logo.png" alt="SteamLogo" />
           </a>
         </div>
-      </form>
-      <div class="category">
-        <ul>
-          <li onclick="chooseGame('action')">ACTION</li>
-        </ul>
+        <h3 id="title-game"></h3>
+        <div class="nav-link">
+          <li onclick="resetPage()">Home</li>
+          <li>Support</li>
+          <li>About Us</li>
+        </div>
       </div>
-    </div>
-    <div class="showing-game">
-      <div class="game-wrapper">
-        <div class="cover">
-          <img id="background-game"
-            src="https://steamcdn-a.akamaihd.net/steam/apps/730/page_bg_generated_v6b.jpg?t=1554409309" alt="dota"
-            height="120px" width="250px" data-id="6203974e86bbf3a3aabad375" />
-          <div class="game-info">
-            <p>Dota 2</p>
-            <p>0$</p>
+    </header>
+    <main>
+      <div class="search-area">
+        <form action="#" class="search-form">
+          <div class="search-box">
+            <input type="text" id="search-input" placeholder="search" />
+            <a href="#" id="store-search-link">
+              <img
+                id="search-icon"
+                src="icon.jfif"
+                alt="icon"
+                height="30px"
+                width="30px"
+              />
+            </a>
+          </div>
+        </form>
+        <div class="category">
+          <ul>
+            <li onclick="chooseGame('action')">ACTION</li>
+          </ul>
+        </div>
+      </div>
+      <div class="showing-game">
+        <div class="game-wrapper">
+          <div class="cover">
+            <img
+              id="background-game"
+              src="https://steamcdn-a.akamaihd.net/steam/apps/730/page_bg_generated_v6b.jpg?t=1554409309"
+              alt="dota"
+              height="120px"
+              width="250px"
+              data-id="6203974e86bbf3a3aabad375"
+            />
+            <div class="game-info">
+              <p>Dota 2</p>
+              <p>0$</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="btn-group">
-      <button class="btn btn-left"></button>
-      Previous Page
-      </button>
-      <button class="btn btn-right">
-        Next Page
-      </button>
-    </div>
-  </main>
-  <footer></footer>
-  <script src="script.js"></script>
-</body>
-
+      <div class="btn-group"></div>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+  </body>
 </html>
