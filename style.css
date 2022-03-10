@@ -213,4 +213,7 @@ footer {
     background-color: #3b5353;
     font-family: "Motiva Sans", Sans-serif;
   }
+  main {
+    display: inline-block;
+  }
 }
