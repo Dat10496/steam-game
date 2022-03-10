@@ -45,7 +45,7 @@ const chooseGame = (data) => {
   page = 1;
   genre = data;
   getGenreGames(data);
-  btnGroup.innerHTML = ` <button class="btn btn-left" onclick="previousPage()"> Previous Page</button>
+  btnGroup.innerHTML = ` <button class="btn btn-left" onclick="previousPage()"> Pre..Page</button>
   </button>
   <button class="btn btn-right" onclick="nextPage()"> Next Page </button>`;
 };
@@ -130,13 +130,12 @@ function resetPage() {
 // Button next page
 function nextPage() {
   page += 1;
-  console.log(page);
   if (page > 4) {
-    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Previous Page</button>
+    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Pre..Page</button>
   <button class=" btn-right" disabled>Next Page</button>`;
   }
   if ((1 < page) & (page < 4)) {
-    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Previous Page</button>
+    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Pre..Page</button>
     <button class="btn btn-right" onclick="nextPage()">Next Page</button>`;
   }
   getGenreGames(genre);
@@ -145,13 +144,12 @@ function nextPage() {
 // Button previous page
 function previousPage() {
   page -= 1;
-  console.log(page);
   if (page < 5) {
-    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Previous Page</button>
+    btnGroup.innerHTML = ` <button class="btn btn-left"  onclick="previousPage()">Pre..Page</button>
     <button class="btn btn-right" onclick="nextPage()">Next Page</button>`;
   }
   if (page < 2) {
-    btnGroup.innerHTML = ` <button class="btn-left"  onclick="previousPage()" disabled>Previous Page</button>
+    btnGroup.innerHTML = ` <button class="btn-left"  onclick="previousPage()" disabled>Pre..Page</button>
     <button class="btn btn-right" onclick="nextPage()">Next Page</button>`;
   }
   getGenreGames(genre);

@@ -174,25 +174,15 @@ li:hover {
   margin: 1.2rem;
 }
 
-.btn-group .btn-right {
-  position: absolute;
-  bottom: -19rem;
-  left: 48rem;
-}
-
-.btn-group .btn-left {
-  position: absolute;
-  bottom: -19rem;
-  left: 40rem;
-}
-
 .btn {
   background-color: #5c7474;
   border-radius: 5px;
   border: none;
-  height: 2rem;
+  height: 1.6rem;
   color: aliceblue;
-  padding: 0.5rem;
+  padding: 0.3rem;
+  max-width: 6.5em;
+  margin: 0.5rem;
 }
 .btn:hover {
   filter: brightness(110%);
@@ -210,10 +200,20 @@ li:hover {
   text-transform: uppercase;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3b5353;
+}
+
 @media only screen and (max-width: 700px) {
   .showing-game {
     display: inline-block;
     background-color: #3b5353;
     font-family: "Motiva Sans", Sans-serif;
+  }
+  main {
+    display: inline-block;
   }
 }
